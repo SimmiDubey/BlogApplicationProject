@@ -1,7 +1,6 @@
 package com.example.BlogApplication.model;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.Fetch;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +30,6 @@ public class Category{
     public Category(){
 
     }
-
 
     public Integer getCategoryId() {
         return categoryId;

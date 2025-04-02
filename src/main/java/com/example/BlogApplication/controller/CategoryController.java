@@ -26,7 +26,7 @@ public class CategoryController {
 
     //update
 
-    @PutMapping("/catId")
+    @PutMapping("/categoryId")
     public ResponseEntity<CategoryDto> updateCategory(@RequestBody CategoryDto categoryDto,@PathVariable Integer catId){
        CategoryDto updateCategory = this.categoryService.updateCategory(categoryDto,catId);
         return new ResponseEntity<CategoryDto>(updateCategory,HttpStatus.OK);
@@ -34,7 +34,7 @@ public class CategoryController {
 
     //delete
 
-      @DeleteMapping("/catId")
+      @DeleteMapping("/categoryId")
      public ResponseEntity<ApiResponse>deleteCategory(@PathVariable Integer catId){
         this.categoryService.deleteCategory(catId);
         return new ResponseEntity<ApiResponse>(new ApiResponse("Category is deleted successfully",true),HttpStatus.OK);
@@ -43,9 +43,9 @@ public class CategoryController {
 
     //get
 
-    @GetMapping("/catId")
-    public ResponseEntity<CategoryDto> getCategory(@PathVariable Integer catId){
-      CategoryDto categoryDto = this.categoryService.getCategory(catId);
+    @GetMapping("/categoryId")
+    public ResponseEntity<CategoryDto> getCategory(@PathVariable Integer categoryId){
+      CategoryDto categoryDto = this.categoryService.getCategory(categoryId);
         return new ResponseEntity<CategoryDto>(categoryDto,HttpStatus.OK);
 
     }

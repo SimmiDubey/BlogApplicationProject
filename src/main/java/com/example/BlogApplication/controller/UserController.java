@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/api/user")
 public class UserController {
 
     @Autowired
@@ -27,8 +27,8 @@ public class UserController {
 
     @PutMapping("/{userId}")
     public ResponseEntity<UserDto> updateUser(@RequestBody UserDto userDto, @PathVariable Long userId){
-        UserDto updateuser = this.userService.updateUser(userDto, userId);
-        return ResponseEntity.ok(updateuser);
+        UserDto updateUser = this.userService.updateUser(userDto, userId);
+        return ResponseEntity.ok(updateUser);
     }
 
     @DeleteMapping("/{userId}")
