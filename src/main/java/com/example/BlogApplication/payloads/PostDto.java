@@ -1,9 +1,10 @@
 package com.example.BlogApplication.payloads;
 
-import com.example.BlogApplication.model.Category;
-import com.example.BlogApplication.model.User;
+import com.example.BlogApplication.model.Comment;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 public class PostDto {
 
@@ -12,26 +13,23 @@ public class PostDto {
     private String imageName;
     private Date addedDate;
 
-
     private CategoryDto category;
     private UserDto user;
 
+    private Set<CommentDto>comments = new HashSet<>();
 
-
-
-    public PostDto(String title, String content,CategoryDto category,UserDto user,String imageName,Date addedDate){
+    public PostDto(String title, String content, CategoryDto category,
+                   UserDto user, String imageName, Date addedDate) {
         this.title = title;
         this.content = content;
-        this.category=category;
-        this.user=user;
-        this.imageName=imageName;
-        this.addedDate=addedDate;
+        this.category = category;
+        this.user = user;
+        this.imageName = imageName;
+        this.addedDate = addedDate;
+
     }
 
-
-
-    public PostDto(){
-
+    public PostDto() {
     }
 
     public String getTitle() {
@@ -50,20 +48,19 @@ public class PostDto {
         this.content = content;
     }
 
-
-    public CategoryDto getCategoryDto() {
+    public CategoryDto getCategory() {
         return category;
     }
 
-    public void setCategoryDto(CategoryDto category) {
+    public void setCategory(CategoryDto category) {
         this.category = category;
     }
 
-    public UserDto getUserDto() {
+    public UserDto getUser() {
         return user;
     }
 
-    public void setUserDto(UserDto user) {
+    public void setUser(UserDto user) {
         this.user = user;
     }
 
@@ -82,6 +79,12 @@ public class PostDto {
     public void setAddedDate(Date addedDate) {
         this.addedDate = addedDate;
     }
+
+    public Set<CommentDto> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<CommentDto> comments) {
+        this.comments = comments;
+    }
 }
-
-

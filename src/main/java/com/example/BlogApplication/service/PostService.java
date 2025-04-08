@@ -1,7 +1,7 @@
 package com.example.BlogApplication.service;
 
-import com.example.BlogApplication.model.Post;
 import com.example.BlogApplication.payloads.PostDto;
+import com.example.BlogApplication.payloads.PostResponse;
 
 import java.util.List;
 
@@ -23,7 +23,7 @@ public interface PostService{
     PostDto getPostById(Integer postId);
 
     //getAll
-    List<PostDto> getAllPost();
+    PostResponse getAllPost(Integer pageNumber,Integer pageSize);
 
     //get All post by category
 

@@ -3,6 +3,8 @@ package com.example.BlogApplication.model;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="posts")
@@ -23,6 +25,8 @@ public class Post {
     @ManyToOne
     private User user;
 
+    @OneToMany(mappedBy = "post",cascade = CascadeType.ALL)
+    private Set<Comment>comments=new HashSet<>();
 
     public Post(Integer postId, String title, String content, String imageName, Date addedDate) {
         this.postId = postId;
@@ -30,6 +34,9 @@ public class Post {
         this.content = content;
         this.imageName = imageName;
         this.addedDate = addedDate;
+    }
+    public Post(){
+
     }
 
 
@@ -88,5 +95,13 @@ public class Post {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Set<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<Comment> comments) {
+        this.comments = comments;
     }
 }
